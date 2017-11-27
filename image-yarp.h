@@ -6,11 +6,12 @@
  * Reading audio files and making it available to YARP
  */
 
-#ifndef __STACS_TIMIT_YARP_H__
-#define __STACS_TIMIT_YARP_H__
+#ifndef __STACS_IMAGE_YARP_H__
+#define __STACS_IMAGE_YARP_H__
 
 #include <algorithm>
 #include <cstdio>
+#include <cmath>
 #include <fstream>
 #include <sstream>
 #include <string>
