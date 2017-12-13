@@ -123,7 +123,7 @@ int main(int argc, char ** argv) {
     // Prepare image to send to stacs
     yarp::sig::ImageOf<yarp::sig::PixelMono> image;
     image.resize(n_cols, n_rows);
-    memcpy(image.getRawImage(), images[perms[ii]].data(), image_size);
+    std::memcpy(image.getRawImage(), images[perms[ii]].data(), image_size);
   
     p.write(image);
       

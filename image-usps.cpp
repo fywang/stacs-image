@@ -68,11 +68,11 @@ int main(int argc, char ** argv) {
       // remaining are the values
       for(int i = 0; i < image_size; ++i) {
         iss >> token;
-        value = std::stof(token.substr(token.find(':')+1, token.size()));
+        value = std::strtof(token.substr(token.find(':')+1, token.size()).c_str(), NULL);
         //printf("token: %s, value: %f\n", token.c_str(), value);
         // Float is from -1 to 1
         // Convert to 0 to 255
-        image[i] = (unsigned char) std::round((value+1.0)*127.5);
+        image[i] = (unsigned char) round((value+1.0)*127.5);
       }
       images.push_back(image);
       labels.push_back(label);
@@ -105,7 +105,7 @@ int main(int argc, char ** argv) {
     // Prepare image to send to stacs
     yarp::sig::ImageOf<yarp::sig::PixelMono> image;
     image.resize(n_cols, n_rows);
-    memcpy(image.getRawImage(), images[perms[ii]].data(), image_size);
+    std::memcpy(image.getRawImage(), images[perms[ii]].data(), image_size);
   
     p.write(image);
       
