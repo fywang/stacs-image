@@ -84,12 +84,17 @@ int main(int argc, char ** argv) {
 
   printf("Number of images: %lu\n", images.size());
   
+  // Writing order of digits
+  std::ofstream uspsorder;
+  uspsorder.open("uspsorder.txt");
+  
   // Random ordering
   std::vector<int> perms;
   perms.resize(images.size());
   for (int i = 0; i < perms.size(); ++i) {
     perms[i] = i;
   }
+  std::srand(std::time(0));
   std::random_shuffle (perms.begin(), perms.end());
 
   bool finish = false;
@@ -100,7 +105,15 @@ int main(int argc, char ** argv) {
     if (ii == 0) {
       std::random_shuffle (perms.begin(), perms.end());
     }
+    // only send 1 and 9 at the moment
+    //if (labels[perms[ii]] != 1 && labels[perms[ii]] != 9) {
+    //  continue;
+    //}
     printf("Sending digit %d\n", labels[perms[ii]]);
+      
+    // Write what was played to file
+    uspsorder << labels[perms[ii]] << std::endl;
+
 
     // Prepare image to send to stacs
     yarp::sig::ImageOf<yarp::sig::PixelMono> image;
