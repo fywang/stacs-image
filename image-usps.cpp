@@ -100,6 +100,9 @@ int main(int argc, char ** argv) {
     if (ii == 0) {
       std::random_shuffle (perms.begin(), perms.end());
     }
+    if (labels[perms[ii]] != 1 && labels[perms[ii]] != 9) {
+      continue;
+    }
     printf("Sending digit %d\n", labels[perms[ii]]);
 
     // Prepare image to send to stacs
