@@ -12,10 +12,10 @@
 #include <algorithm>
 #include <cstdio>
 #include <cmath>
+#include <cstring>
 #include <fstream>
 #include <sstream>
 #include <string>
-#include <random>
 #include <vector>
 
 #include <yarp/os/Time.h>
