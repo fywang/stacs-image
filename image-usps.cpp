@@ -105,16 +105,9 @@ int main(int argc, char ** argv) {
     if (ii == 0) {
       std::random_shuffle (perms.begin(), perms.end());
     }
-<<<<<<< HEAD
-    // only send 1 and 9 at the moment
-    //if (labels[perms[ii]] != 1 && labels[perms[ii]] != 9) {
-    //  continue;
-    //}
-=======
     if (labels[perms[ii]] != 1 && labels[perms[ii]] != 9) {
       continue;
     }
->>>>>>> 91168233ef2b29cf36b1a396006ad5421c8a0d35
     printf("Sending digit %d\n", labels[perms[ii]]);
       
     // Write what was played to file
